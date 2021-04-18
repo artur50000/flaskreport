@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('common', order='desc') }}">reverse result</a>
+    <table>
+        <tr>
+            <th>Abbreviation</th>
+            <th>Result Time</th>
+        </tr>
+        {% for item in drivers_list %}
+        <tr>
+            <td>{{ item.Abbreviation }}</td>
+            <td>{{ item.result_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>  
+    
+    <br>
+    possible errors in data:
+    <ul>
+    {% for item in fail_list %}
+    <li>{{ item.Abbreviation }} {{ item.result_time }}</li>
+    {% endfor %}
+    </ul>
+
+    {% endblock %}
+    

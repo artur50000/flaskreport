@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('drivers', order='desc') }}">reverse result</a>
+
+    <table>
+        <tr>
+            <th>Abbreviation</th>
+            <th>Name</th>
+               
+            <th>Company</th>
+        </tr>
+        
+        {% for item in whole_list %}
+        <tr>
+           
+            <td ><a href="{{ url_for('drivers', driver_id=item.Abbreviation) }}">{{ item.Abbreviation }}</a></td>
+            <td >{{ item.Name }}</td>
+            <td >{{ item.Company }}</td>
+       
+        </tr>
+        {% endfor %}
+     </table>  
+    
+    {% endblock %}
